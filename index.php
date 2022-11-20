@@ -25,30 +25,39 @@
     $cart = array();
     $productsTemp = array();
 
-    // for ($i=0; $i < $_SESSION['contador']; $i++) { 
-    //   if($_SESSION['products'][$i]['name'] == $_POST['productName']) {
-    //     return;
-    //   };
-    // }
+    for ($i=0; $i < $_SESSION['contador']; $i++) { 
+      if($_SESSION['products'][$i]['name'] == $_POST['productName']) {
+  ?>
+        <div class="error">
+          <span> O produto já existe!</span>
+          <a href="http://localhost/cezinha/newProduct">Tente outro produto</a>
+        </div>;
+  <?php
+        return;
+      }
+    }
 
-    $productsTemp['name'] = $_POST['productName'];
-    $productsTemp['price'] = $_POST['productPrice'];
-    array_push($_SESSION['products'], $productsTemp);
-
+    if($_POST['productName']){
+      $productsTemp['name'] = $_POST['productName'];
+      $productsTemp['price'] = $_POST['productPrice'];
+      array_push($_SESSION['products'], $productsTemp);
+    }
     echo '<div class="products">';
-    foreach($_SESSION['products'] as $product){
+
+
+    foreach($_SESSION['products'] as $product => $value){
   ?>
     <div class="product">
       <h2 class="product-name">
-        <?php echo $product['name']?>
+        <?php echo $value['name']?>
       </h2>
-      <span class="product-price">R$:<?php echo $product['price']?></span>
-      <button class="add-to-cart">Adicionar ao carrinho</button>
+      <span class="product-price">R$:<?php echo $value['price']?></span>
+      <a href="?adicionar<?php echo $product?>" class="add-to-cart">Adicionar ao carrinho</a>
     </div>
   <?php
     };
     echo '</div>';
   ?>
-  <a href="http://localhost/cezinha/newProduct">asasasa</a>
+  <a href="http://localhost/cezinha/newProduct">Adicionar um novo produto para vender</a>
 </body>
 </html>

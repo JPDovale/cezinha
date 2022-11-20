@@ -2,6 +2,20 @@ body {
   background-color: #e1e1e3
 }
 
+.title{
+  padding: 16px;
+  width: 100%;
+  margin-bottom: 0.5rem;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  
+  background-color: #242438;
+  color: #d3d3d6;
+  box-shadow: 0px 3px 8px #00000050;
+}
+
 .product-form{
   position: absolute;
   display: flex;

@@ -26,7 +26,7 @@
 
     <div class="input"> 
       <label> Preço do produto </label>
-      <input id="productPrice" type="text" name="productPrice" />
+      <input id="productPrice" type="number" name="productPrice"  />
     </div>
 
     <button 
